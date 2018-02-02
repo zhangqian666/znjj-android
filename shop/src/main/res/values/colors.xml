@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <!--NavHomeFragment:底部导航栏-->
+    <color name="bottom_bar_under_line_nav_home">#DDDDDD</color>
+    <color name="bottom_bar_text_select_nav_home">#FA749A</color>
+    <color name="bottom_bar_text_unselect_nav_home">#87888A</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="grey">#dbdbdb</color>
+</resources>
