@@ -8,7 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jess.arms.di.component.AppComponent;
+import com.jess.arms.widget.autolayout.AutoToolbar;
 
+import butterknife.BindView;
 import me.yokeyword.fragmentation.ISupportFragment;
 import zack.com.znjj.R;
 import zack.com.znjj.app.base.BaseSupportFragment;
@@ -16,15 +18,18 @@ import zack.com.znjj.app.base.BaseSupportFragment;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SelfFragment extends BaseSupportFragment {
+public class CartFragment extends BaseSupportFragment {
 
 
-    public SelfFragment() {
-        // Required empty public constructor
-    }
+    @BindView(R.id.toolbar)
+    AutoToolbar autoToolbar;
 
     public static ISupportFragment newInstance() {
-        return new SelfFragment();
+        return new ShopFragment();
+    }
+
+    public CartFragment() {
+        // Required empty public constructor
     }
 
 
@@ -35,7 +40,7 @@ public class SelfFragment extends BaseSupportFragment {
 
     @Override
     public View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_self, container, false);
+        return inflater.inflate(R.layout.fragment_cart, container, false);
     }
 
     @Override

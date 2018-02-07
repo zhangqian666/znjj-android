@@ -3,7 +3,9 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="zack.com.znjj.mvp.ui.fragment.main.HomeFragment">
-
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/tool_bar"/>
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"

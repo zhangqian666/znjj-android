@@ -16,15 +16,14 @@ import zack.com.znjj.app.base.BaseSupportFragment;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SelfFragment extends BaseSupportFragment {
-
-
-    public SelfFragment() {
-        // Required empty public constructor
-    }
+public class ShopFragment extends BaseSupportFragment {
 
     public static ISupportFragment newInstance() {
-        return new SelfFragment();
+        return new ShopFragment();
+    }
+
+    public ShopFragment() {
+        // Required empty public constructor
     }
 
 
@@ -35,7 +34,7 @@ public class SelfFragment extends BaseSupportFragment {
 
     @Override
     public View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_self, container, false);
+        return inflater.inflate(R.layout.fragment_shop, container, false);
     }
 
     @Override
@@ -47,4 +46,6 @@ public class SelfFragment extends BaseSupportFragment {
     public void setData(Object data) {
 
     }
+
+
 }

@@ -14,14 +14,18 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import me.yokeyword.fragmentation.ISupportFragment;
+import timber.log.Timber;
 import zack.com.znjj.R;
 import zack.com.znjj.app.base.BaseSupportActivity;
+import zack.com.znjj.app.utils.BottomNavigationViewHelper;
 import zack.com.znjj.di.component.DaggerMainComponent;
 import zack.com.znjj.di.module.MainModule;
 import zack.com.znjj.mvp.contract.MainContract;
 import zack.com.znjj.mvp.presenter.MainPresenter;
+import zack.com.znjj.mvp.ui.fragment.main.CartFragment;
 import zack.com.znjj.mvp.ui.fragment.main.HomeFragment;
 import zack.com.znjj.mvp.ui.fragment.main.SelfFragment;
+import zack.com.znjj.mvp.ui.fragment.main.ShopFragment;
 
 import static com.jess.arms.utils.Preconditions.checkNotNull;
 
@@ -34,7 +38,7 @@ public class MainActivity extends BaseSupportActivity<MainPresenter> implements 
     @BindView(R.id.navigation_view)
     BottomNavigationView navigationView;
 
-    private ISupportFragment[] mFragments = new ISupportFragment[2];
+    private ISupportFragment[] mFragments = new ISupportFragment[4];
 
     @Override
     public void setupActivityComponent(AppComponent appComponent) {
@@ -54,6 +58,8 @@ public class MainActivity extends BaseSupportActivity<MainPresenter> implements 
     @Override
     public void initData(Bundle savedInstanceState) {
         initFragmentation();
+        BottomNavigationViewHelper.disableShiftMode(navigationView);
+        navigationView.setOnNavigationItemSelectedListener(this);
     }
 
 
@@ -61,23 +67,38 @@ public class MainActivity extends BaseSupportActivity<MainPresenter> implements 
         ISupportFragment homeFragment = findFragment(HomeFragment.class);
         if (homeFragment == null) {
             mFragments[0] = HomeFragment.newInstance();
-            mFragments[1] = SelfFragment.newInstance();
-            loadRootFragment(R.id.frame_content, mFragments[0]);
+            mFragments[1] = ShopFragment.newInstance();
+            mFragments[2] = CartFragment.newInstance();
+            mFragments[3] = SelfFragment.newInstance();
+            loadMultipleRootFragment(R.id.frame_content, 0, mFragments);
         } else {
             mFragments[0] = findFragment(HomeFragment.class);
-            mFragments[1] = findFragment(SelfFragment.class);
+            mFragments[1] = findFragment(ShopFragment.class);
+            mFragments[2] = findFragment(CartFragment.class);
+            mFragments[3] = findFragment(SelfFragment.class);
         }
+
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.home:
+                Timber.e("home");
                 showHideFragment(mFragments[0]);
-                break;
-            case R.id.self:
+                return true;
+            case R.id.see:
+                Timber.e("self");
                 showHideFragment(mFragments[1]);
-                break;
+                return true;
+            case R.id.shop:
+                Timber.e("self");
+                showHideFragment(mFragments[2]);
+                return true;
+            case R.id.self:
+                Timber.e("self");
+                showHideFragment(mFragments[3]);
+                return true;
         }
         return false;
     }

@@ -120,6 +120,10 @@ public abstract class BaseSupportActivity<P extends IPresenter> extends BaseActi
         mDelegate.loadRootFragment(containerId, toFragment);
     }
 
+    public void loadMultipleRootFragment(int containerId, int showPosition, @NonNull ISupportFragment... toFragments) {
+        mDelegate.loadMultipleRootFragment(containerId, showPosition, toFragments);
+    }
+
     public void start(ISupportFragment toFragment) {
         mDelegate.start(toFragment);
     }
@@ -145,9 +149,11 @@ public abstract class BaseSupportActivity<P extends IPresenter> extends BaseActi
     public void popTo(Class<?> targetFragmentClass, boolean includeTargetFragment) {
         mDelegate.popTo(targetFragmentClass, includeTargetFragment);
     }
+
     public void showHideFragment(ISupportFragment showFragment) {
         mDelegate.showHideFragment(showFragment);
     }
+
     /**
      * If you want to begin another FragmentTransaction immediately after popTo(), use this method.
      * 如果你想在出栈后, 立刻进行FragmentTransaction操作，请使用该方法

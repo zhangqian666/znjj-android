@@ -18,8 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import me.yokeyword.fragmentation.ISupportFragment;
 import zack.com.znjj.R;
 import zack.com.znjj.app.base.BaseSupportFragment;
@@ -39,7 +37,6 @@ public class HomeFragment extends BaseSupportFragment<HomePresenter> implements 
     RecyclerView recycleView;
     @BindView(R.id.swipe_refresh)
     SwipeRefreshLayout swipeRefresh;
-    Unbinder unbinder;
     private List<Product> productList = new ArrayList<>();
     private ProductMultiListAdapter productMultiListAdapter;
 
@@ -113,19 +110,6 @@ public class HomeFragment extends BaseSupportFragment<HomePresenter> implements 
 
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
 
     @Override
     public void refreshList(List<Product> list) {

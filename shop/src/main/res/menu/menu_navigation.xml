@@ -3,7 +3,15 @@
     <item
         android:id="@+id/home"
         android:icon="@mipmap/ic_nav_home"
-        android:title="首页"/>
+        android:title="控制台"/>
+    <item
+        android:id="@+id/see"
+        android:icon="@mipmap/ic_nav_see"
+        android:title="设备"/>
+    <item
+        android:id="@+id/shop"
+        android:icon="@mipmap/ic_nav_shop"
+        android:title="购物车"/>
     <item
         android:id="@+id/self"
         android:icon="@mipmap/ic_nav_self"

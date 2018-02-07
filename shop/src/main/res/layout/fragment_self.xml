@@ -5,6 +5,10 @@
             android:layout_height="match_parent"
             tools:context="zack.com.znjj.mvp.ui.fragment.main.SelfFragment">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/tool_bar"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,17 +43,23 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="张迁"/>
+                        android:text="张迁"
+                        android:textColor="@color/black_thi"
+                        android:textSize="@dimen/text_title"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="PHONE"/>
+                        android:text="PHONE"
+                        android:textColor="@color/black_sec"
+                        android:textSize="@dimen/text_normal"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="EMAIL"/>
+                        android:text="EMAIL"
+                        android:textColor="@color/black_sec"
+                        android:textSize="@dimen/text_normal"/>
 
                 </LinearLayout>
             </LinearLayout>

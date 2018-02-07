@@ -16,4 +16,8 @@
     <dimen name="tab_indicator_height_main_home">5px</dimen>
     <dimen name="tab_text_size_main_home">22px</dimen>
 
+    <dimen name="text_nav">18sp</dimen>
+    <dimen name="text_title">16sp</dimen>
+    <dimen name="text_normal">14sp</dimen>
+    <dimen name="text_annotate">12sp</dimen>
 </resources>
