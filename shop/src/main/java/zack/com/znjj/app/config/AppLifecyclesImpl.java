@@ -19,6 +19,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.jess.arms.base.delegate.AppLifecycles;
+import com.jess.arms.utils.ArmsUtils;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -47,6 +48,8 @@ public class AppLifecyclesImpl implements AppLifecycles {
     private void initLeakCanary(Application application) {
         //leakCanary内存泄露检查
         mRefWatcher = BuildConfig.USE_CANARY ? LeakCanary.install(application) : RefWatcher.DISABLED;
+        ArmsUtils.obtainAppComponentFromContext(application)
+                .extras().put(RefWatcher.class.getName(), mRefWatcher);
     }
 
     private void initTimber() {
